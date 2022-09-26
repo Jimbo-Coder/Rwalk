@@ -2,6 +2,7 @@ module rwalk
 using Distributed, ProgressMeter, CUDA
 
 include("harm.jl")
+include("hw4.jl")
 greet() = print("Hello World!")
 
 
