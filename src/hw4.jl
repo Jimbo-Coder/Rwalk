@@ -50,3 +50,28 @@ function p347()
    label="p=0.01;N=100",st=:scatter,markersize = 2,xlims = (0,50))
    #savefig(p1, ".\\Desktop\\Classes 4-1\\phys426(therm.)\\Plots\\PoissonPlot")
 end
+
+function p46()
+   function Ω(E, N)
+      b = factorial(E + N - 1) / (factorial(E) * factorial(N - 1))
+      return (b)
+   end
+
+   cum = 0
+   for i in 0:12
+      b = Ω(i, 4) * Ω(12 - i, 4)
+      cum = cum + b
+   end
+   print(cum)
+
+   Ea = collect(0:12)
+   Pa = Ω.(Ea,4) .* Ω.(12 .- Ea,4) ./cum 
+
+   p1 = plot(Ea, Pa, xlabel = "Energy Ea", ylabel = "Pa(Ea)",
+    title = "Thermal Contact Distribution",st=:scatter,xticks = Ea)
+   
+   gui()
+
+   #savefig(p1, ".\\Desktop\\Classes 4-1\\phys426(therm.)\\Plots\\ThermalPa")
+   return(Pa,Ω.(12 .-Ea,4))
+end
