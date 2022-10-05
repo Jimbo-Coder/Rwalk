@@ -3,6 +3,7 @@ using Distributed, ProgressMeter, CUDA
 
 include("harm.jl")
 include("hw4.jl")
+include("hw7320.jl")
 greet() = print("Hello World!")
 
 
